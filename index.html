@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario de ingreso para ficha médica">
+  <title>Ficha Médica | Registro de pacientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Sistema de registro</p>
+        <h1>Ficha Médica</h1>
+        <p class="subtitle">Ingreso y consulta de antecedentes de pacientes</p>
+      </div>
+      <div class="status" aria-label="Estado del sistema">
+        <span class="status-dot"></span> Sistema local
+      </div>
+    </header>
+
+    <section class="layout">
+      <section class="card form-card">
+        <div class="card-title">
+          <div>
+            <h2>Datos del paciente</h2>
+            <p>Completa la información y presiona Guardar.</p>
+          </div>
+          <span class="required">* Campos obligatorios</span>
+        </div>
+
+        <div id="message" class="message" role="alert" aria-live="polite"></div>
+
+        <form id="patientForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="rut">RUT <span>*</span></label>
+              <input id="rut" name="rut" type="text" placeholder="12.345.678-9" maxlength="12" autocomplete="off" required>
+              <small>Ej.: 12.345.678-5</small>
+            </div>
+
+            <div class="field">
+              <label for="nombres">Nombres <span>*</span></label>
+              <input id="nombres" name="nombres" type="text" placeholder="Nombres" required>
+            </div>
+
+            <div class="field">
+              <label for="apellidos">Apellidos <span>*</span></label>
+              <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos" required>
+            </div>
+
+            <div class="field field-wide">
+              <label for="direccion">Dirección <span>*</span></label>
+              <input id="direccion" name="direccion" type="text" placeholder="Calle y número" required>
+            </div>
+
+            <div class="field">
+              <label for="ciudad">Ciudad <span>*</span></label>
+              <input id="ciudad" name="ciudad" type="text" placeholder="Ciudad" required>
+            </div>
+
+            <div class="field">
+              <label for="telefono">Teléfono <span>*</span></label>
+              <input id="telefono" name="telefono" type="tel" placeholder="+56 9 1234 5678" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span>*</span></label>
+              <input id="email" name="email" type="email" placeholder="correo@ejemplo.cl" required>
+            </div>
+
+            <div class="field">
+              <label for="fechaNacimiento">Fecha de nacimiento <span>*</span></label>
+              <input id="fechaNacimiento" name="fechaNacimiento" type="date" required>
+            </div>
+
+            <div class="field">
+              <label for="estadoCivil">Estado civil <span>*</span></label>
+              <select id="estadoCivil" name="estadoCivil" required>
+                <option value="">Seleccionar...</option>
+                <option>Soltero/a</option>
+                <option>Casado/a</option>
+                <option>Divorciado/a</option>
+                <option>Viudo/a</option>
+                <option>Separado/a</option>
+                <option>Conviviente civil</option>
+              </select>
+            </div>
+
+            <div class="field field-wide">
+              <label for="comentarios">Comentarios</label>
+              <textarea id="comentarios" name="comentarios" rows="4" placeholder="Observaciones o comentarios adicionales..."></textarea>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Guardar</button>
+            <button type="button" id="clearBtn" class="btn secondary">Limpiar</button>
+            <button type="button" id="closeBtn" class="btn danger">Cerrar</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="card search-card">
+        <div class="card-title">
+          <div>
+            <h2>Buscar usuarios</h2>
+            <p>Busca registros por apellido.</p>
+          </div>
+          <span id="count" class="count">0 registros</span>
+        </div>
+
+        <div class="search-box">
+          <label for="searchApellido">Apellido</label>
+          <div class="search-input">
+            <input id="searchApellido" type="search" placeholder="Escribe un apellido..." autocomplete="off">
+            <button id="clearSearch" type="button" title="Limpiar búsqueda" aria-label="Limpiar búsqueda">×</button>
+          </div>
+        </div>
+
+        <div id="results" class="results" aria-live="polite">
+          <div class="empty">
+            <div class="empty-icon">⌕</div>
+            <strong>Sin búsqueda</strong>
+            <p>Los resultados aparecerán aquí.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      <p>Proyecto académico · Los datos se almacenan únicamente en este navegador.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
